@@ -10,9 +10,9 @@ public class OutLevenshtein {
         String sheetname = "levenshtein";
         List<LevenshteinDto> list = new ArrayList<>();
         String word1 = "кит";
-        String word2 = "скот";
-        Levenshtein.wrapperGetDistanceWithMemo(5, word1, word2, file, list);
-        Levenshtein.wrapperGetDistanceRecursive(5, word1, word2,file, list);
+        String word2 = "скау";
+       // Levenshtein.wrapperGetDistanceWithMemo(5, word1, word2, file, list);
+      //  Levenshtein.wrapperGetDistanceRecursive(5, word1, word2,file, list);
         Levenshtein.wrapperGetDistance(5, word1, word2, file, list);
         Levenshtein.writeInExcelAlgs(file, sheetname, list);
     }

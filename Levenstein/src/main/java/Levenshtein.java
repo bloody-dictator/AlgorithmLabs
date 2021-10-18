@@ -18,7 +18,6 @@ public class Levenshtein {
         int cost;
         int n = word1.length();
         int m = word2.length();
-
         if (n == 0 && m == 0) {
             return 0;
         } else if (n == 0 && m > 0) {
@@ -26,20 +25,24 @@ public class Levenshtein {
         } else if (m == 0 && n > 0) {
             return n;
         } else {
-            int[][] matrixD = new int[n][m];
-            for (int i = 0; i < n; i++) {
+            int[][] matrixD = new int[n+1][m+1];
+            for (int i = 0; i <= n; i++) {
                 matrixD[i][0] = i;
             }
-            for (int j = 0; j < m; j++) {
+            PrinterWord.printMatrix(matrixD);
+            System.out.println();
+            for (int j = 0; j <= m; j++) {
                 matrixD[0][j] = j;
             }
-            for (int i = 1; i < n; i++) {
-                for (int j = 1; j < m; j++) {
+            PrinterWord.printMatrix(matrixD);
+            System.out.println();
+            for (int i = 1; i <= n; i++) {
+                for (int j = 1; j <= m; j++) {
                     cost = costOfSubstitution(word1.charAt(i - 1), word2.charAt(j - 1));
                     matrixD[i][j] = min(matrixD[i][j - 1] + 1, matrixD[i - 1][j] + 1, matrixD[i - 1][j - 1] + cost);
                 }
             }
-            return matrixD[n - 1][m - 1];
+            return matrixD[n][m];
         }
     }
 
