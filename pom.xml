@@ -23,6 +23,7 @@
         <module>Common</module>
         <module>Levenstein</module>
         <module>Matrixes</module>
+        <module>SparseMatrixes</module>
     </modules>
     <dependencies>
         <dependency>
